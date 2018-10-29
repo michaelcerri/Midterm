@@ -1,8 +1,9 @@
 package pkgShape;
 
+import java.util.Collections;
 import java.util.Comparator;
 
-public class Cuboid extends Rectangle{
+public class Cuboid extends Rectangle implements Comparable{
 	
 	private int iDepth;
 	
@@ -29,34 +30,28 @@ public class Cuboid extends Rectangle{
 	}
 	
 	@Override
-	public double perimeter() {//throws
-		//TODO
-		return 0;
+	public double perimeter() throws UnsupportedOperationException {//throws
+		throw new UnsupportedOperationException();
 	}
 	
 	
-	@Override
 	public int compareTo(Object o) {
-		//TODO
-		return 0;
+		Cuboid c = (Cuboid) o;
+		Collections.sort(c, SortByArea.compare(this, c));
 		
 	}
 	
 	public class SortByArea implements Comparator<Cuboid>{
-		SortByArea(){	
-		}
 		
 		public int compare(Cuboid c1, Cuboid c2) {
-			return Double.compare(c1.area(), c2.area()); //found implementation online
+			return (int)(c1.area()-c2.area()); 
 		}
 	}
 	
-	public class SortByVolume{
-		SortByVolume(){
-		}
+	public class SortByVolume implements Comparator<Cuboid>{
 		
 		public int compare(Cuboid c1, Cuboid c2) {
-			return Double.compare(c1.volume(), c2.volume());
+			return (int)(c1.volume()-c2.volume());
 		}
 	}
 	

@@ -1,7 +1,7 @@
 package pkgShape;
 
 
-public class Rectangle extends Shape{
+public class Rectangle extends Shape implements Comparable{
 	
 	private int iWidth;
 	private int iLength;
@@ -27,21 +27,19 @@ public class Rectangle extends Shape{
 		this.iLength = iLength;
 	}
 
-
-
-	@Override
+	
 	public double area() {
 		return iLength*iWidth;
 	}
 
-	@Override
+	
 	public double perimeter() {
 		return 2*(iLength+iWidth);
 	}
 	
 	public int compareTo(Object o) {
-		//TODO
-		return 0;
+		Rectangle r = (Rectangle) o;
+		return Double.compare(this.area(),r.area());
 		
 	}
 
