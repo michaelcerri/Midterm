@@ -1,5 +1,6 @@
 package pkgShape;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
@@ -37,8 +38,17 @@ public class Cuboid extends Rectangle implements Comparable{
 	
 	public int compareTo(Object o) {
 		Cuboid c = (Cuboid) o;
-		Collections.sort(c, SortByArea.compare(this, c));
+		ArrayList<Cuboid> arr = new ArrayList<Cuboid>(); 
+		arr.add(c);
+		arr.add(this);
+		Collections.sort(arr, new SortByArea());
+		return 0;
 		
+		/*
+		 return Comparator.comparing(Cuboid::area)
+	              .thenComparing(Cuboid::volume)
+	              .compare(this, c);
+	              */
 	}
 	
 	public class SortByArea implements Comparator<Cuboid>{
