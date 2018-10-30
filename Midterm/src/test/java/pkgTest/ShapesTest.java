@@ -124,8 +124,17 @@ public class ShapesTest {
 	
 	@Test
 	public void CuboidSortByAreaTest() {
-		//Cuboid c1 = new Cuboid (3,5,7);
-		//Cuboid c2 = new Cuboid (1,1,1);
-		//assertEquals(c1.compareTo(c2));
+		Cuboid c1 = new Cuboid (3,5,7);
+		Cuboid c2 = new Cuboid (1,1,1);
+		int expectedResult=1; //c1 Area>c2 Area
+		assertEquals(c1.compareTo(c2),expectedResult);
+	}
+	
+	@Test 
+	public void CuboidSortByVolumeTest() {
+		Cuboid c1 = new Cuboid (3,3,3); //SA=54 , V=27
+		Cuboid c2 = new Cuboid (1,3,6); //SA=54 , V=15
+		int expectedResult=1; //c1 V> c2 V
+		assertEquals(c1.compareTo(c2),expectedResult);
 	}
 }

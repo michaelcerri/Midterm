@@ -38,35 +38,32 @@ public class Cuboid extends Rectangle implements Comparable<Object>{
 	
 	public int compareTo(Object o) {
 		Cuboid c = (Cuboid) o;
-		ArrayList<Cuboid> arr = new ArrayList<Cuboid>(); 
-		arr.add(c);
-		arr.add(this);
-		Collections.sort(arr, new SortByArea());
-		return 0;
+		if ((new SortByArea()).compare(this,c)!=0) 
+			return (new SortByArea().compare(this,c));
+			
+			else
+				return (new SortByVolume().compare(this, c)); 
+		}
+		//this will sort first by area, and then by volume if areas are equal. I'm not sure if this is what you wanted	
 		
-		/* This code would work to sort cuboids first by area, then volume. 
-		 return Comparator.comparing(Cuboid::area)
-	              .thenComparing(Cuboid::volume)
-	              .compare(this, c);
-	              */
 	}
 	
-	public class SortByArea implements Comparator<Cuboid>{
+	 class SortByArea implements Comparator<Cuboid>{
 		//java will give default constructor
 		
 		
 		public int compare(Cuboid c1, Cuboid c2) {
-			return (int)(c1.area()-c2.area()); 
+			return Double.compare(c1.area(),c2.area()); 
 		}
 	}
 	
-	public class SortByVolume implements Comparator<Cuboid>{
+	 class SortByVolume implements Comparator<Cuboid>{
 		//java will give default constructor 
 		
 		
 		public int compare(Cuboid c1, Cuboid c2) {
-			return (int)(c1.volume()-c2.volume());
+			return Double.compare(c1.volume(),c2.volume());
 		}
-	}
-	
 }
+	
+
