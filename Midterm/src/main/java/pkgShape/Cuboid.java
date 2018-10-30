@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-public class Cuboid extends Rectangle implements Comparable{
+public class Cuboid extends Rectangle implements Comparable<Object>{
 	
 	private int iDepth;
 	
@@ -44,7 +44,7 @@ public class Cuboid extends Rectangle implements Comparable{
 		Collections.sort(arr, new SortByArea());
 		return 0;
 		
-		/*
+		/* This code would work to sort cuboids first by area, then volume. 
 		 return Comparator.comparing(Cuboid::area)
 	              .thenComparing(Cuboid::volume)
 	              .compare(this, c);
@@ -52,6 +52,8 @@ public class Cuboid extends Rectangle implements Comparable{
 	}
 	
 	public class SortByArea implements Comparator<Cuboid>{
+		//java will give default constructor
+		
 		
 		public int compare(Cuboid c1, Cuboid c2) {
 			return (int)(c1.area()-c2.area()); 
@@ -59,6 +61,8 @@ public class Cuboid extends Rectangle implements Comparable{
 	}
 	
 	public class SortByVolume implements Comparator<Cuboid>{
+		//java will give default constructor 
+		
 		
 		public int compare(Cuboid c1, Cuboid c2) {
 			return (int)(c1.volume()-c2.volume());

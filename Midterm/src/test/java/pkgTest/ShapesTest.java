@@ -65,9 +65,10 @@ public class ShapesTest {
 	//TODO Test compareto
 	@Test
 	public void rectangleCompareToTest() {
-		Rectangle r1= new Rectangle(3,5);
-		Rectangle r2= new Rectangle(1,1);
+		Rectangle r1= new Rectangle(4,6);
+		Rectangle r2= new Rectangle(2,2);
 		assertEquals(r1.compareTo(r2),1);
+		assertEquals(r2.compareTo(r1),-1);
 	}
 	
 	
@@ -123,8 +124,8 @@ public class ShapesTest {
 	
 	@Test
 	public void CuboidSortByAreaTest() {
-		Cuboid c1 = new Cuboid (3,5,7);
-		Cuboid c2 = new Cuboid (1,1,1);
+		//Cuboid c1 = new Cuboid (3,5,7);
+		//Cuboid c2 = new Cuboid (1,1,1);
 		//assertEquals(c1.compareTo(c2));
 	}
 }

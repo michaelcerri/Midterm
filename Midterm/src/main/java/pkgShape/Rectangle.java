@@ -1,7 +1,7 @@
 package pkgShape;
 
 
-public class Rectangle extends Shape implements Comparable{
+public class Rectangle extends Shape implements Comparable<Object>{
 	
 	private int iWidth;
 	private int iLength;
